@@ -1,0 +1,43 @@
+Initialize three counters to zero: length, word_count, vowel_count.
+Read the input sentence.
+Set a flag called "inside_word" to false.
+For each character in the sentence, do the following:
+a. Increment the length counter.
+b. If the character is a space, set the "inside_word" flag to false.
+c. If the character is a vowel (a, e, i, o, u), increment the vowel_count counter.
+d. If the character is not a space and the "inside_word" flag is false, increment the word_count counter and set the "inside_word" flag to true.
+Print out the values of the length, word_count, and vowel_count counters.
+
+
+// Initialize counters
+let length = 0;
+let numWords = 0;
+let numVowels = 0;
+
+// Read input sentence
+let sentence = prompt("Enter a sentence: ");
+
+// Loop through each character in the sentence
+for (let i = 0; i < sentence.length; i++) {
+    let char = sentence[i];
+    // Increment length counter
+    length++;
+
+    // If character is a space, increment word counter
+    if (char === " ") {
+        numWords++;
+    }
+
+    // If character is a vowel, increment vowel counter
+    if (["a", "e", "i", "o", "u"].includes(char.toLowerCase())) {
+        numVowels++;
+    }
+}
+
+// Add 1 to word counter to account for last word after the final space
+numWords++;
+
+// Print results
+console.log("Length:", length);
+console.log("Number of words:", numWords);
+console.log("Number of vowels:", numVowels);
